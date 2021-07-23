@@ -886,11 +886,8 @@ html body main .sect .grid .sub .inner h3:nth-child(2) {
 html body main .sect.colored {
   background-color: #f8f8f8;
 }
-html body main #sect-best {
-  background-color: #ffffff;
-}
 html body main #sect-best .grid {
-  padding: 1rem;
+  padding: 4rem 1rem;
 }
 @media only screen and (min-width: 768px) {
 }
@@ -952,12 +949,12 @@ html body main #sect-best .grid .block-gallery .wrapper .item img:hover {
 }
 @media only screen and (min-width: 1366px) {
   html body main #sect-best .grid .block-gallery .wrapper .item img {
-    width: 20rem;
+    width: 24rem;
   }
 }
 @media only screen and (min-width: 1440px) {
   html body main #sect-best .grid .block-gallery .wrapper .item img {
-    width: 30rem;
+    width: 25rem;
   }
 }
 @media only screen and (min-width: 2560px) {
@@ -1757,6 +1754,7 @@ html body main .sect-education .grid .para .block-current .side {
   transition-delay: 250ms;
 }
 html body main .sect-education .grid .course-wrapper {
+  background-color: #ffffff;
   border: 1px solid #000000;
   grid-column: 1 / span 6;
   margin-top: 2rem;
@@ -1778,31 +1776,15 @@ html body main .sect-education .grid .course-wrapper .inner {
 }
 html body main .sect-education .grid .course-wrapper .inner ul {
   padding: 0;
-  display: grid;
-  justify-self: center;
-  grid-template-columns: repeat(2, 9rem);
-  grid-template-rows: repeat(3, 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  align-content: flex-end;
 }
 @media only screen and (min-width: 768px) {
   html body main .sect-education .grid .course-wrapper .inner ul {
-    grid-template-rows: repeat(2, 9rem);
-    grid-template-columns: repeat(3, 14rem);
-  }
-}
-@media only screen and (min-width: 1366px) {
-  html body main .sect-education .grid .course-wrapper .inner ul {
-    grid-template-rows: auto;
-    grid-template-columns: repeat(6, 10.5rem);
-  }
-}
-@media only screen and (min-width: 1440px) {
-  html body main .sect-education .grid .course-wrapper .inner ul {
-    grid-template-columns: repeat(6, 11rem);
-  }
-}
-@media only screen and (min-width: 2560px) {
-  html body main .sect-education .grid .course-wrapper .inner ul {
-    grid-template-columns: repeat(6, 21rem);
+    flex-direction: row;
   }
 }
 html body main .sect-education .grid .course-wrapper .inner ul li {
@@ -1867,7 +1849,7 @@ html body main .sect-contact .grid .title {
 }
 @media only screen and (min-width: 768px) {
   html body main .sect-contact .grid .title {
-    grid-column: 1 / span 10;
+    grid-column: 3 / span 8;
   }
 }
 @media only screen and (min-width: 1366px) {

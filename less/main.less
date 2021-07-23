@@ -922,9 +922,8 @@ html {
 
       ////////////////////////////////////////////
       #sect-best {
-        background-color: @lightColor;
         .grid {
-          padding: 1rem;
+          padding: 4rem 1rem;
           @media @medium {
             // padding: 3rem 2rem;
           }
@@ -971,10 +970,10 @@ html {
                     width: 10rem;
                   }
                   @media @large {
-                    width: 20rem;
+                    width: 24rem;
                   }
                   @media @xlarge {
-                    width: 30rem;
+                    width: 25rem;
                   }
                   @media @xxlarge {
                     width: 40rem;
@@ -1638,6 +1637,7 @@ html {
             }
           }
           .course-wrapper {
+            background-color: @lightColor;
             border: 1px solid @darkColor;
             grid-column: 1 / span 6;
             margin-top: 2rem;
@@ -1653,23 +1653,13 @@ html {
               display: grid;
               ul {
                 padding: 0;
-                display: grid;
-                justify-self: center;
-                grid-template-columns: repeat(2, 9rem);
-                grid-template-rows: repeat(3, 8rem);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                align-content: flex-end;
                 @media @medium {
-                  grid-template-rows: repeat(2, 9rem);
-                  grid-template-columns: repeat(3, 14rem);
-                }
-                @media @large {
-                  grid-template-rows: auto;
-                  grid-template-columns: repeat(6, 10.5rem);
-                }
-                @media @xlarge {
-                  grid-template-columns: repeat(6, 11rem);
-                }
-                @media @xxlarge {
-                  grid-template-columns: repeat(6, 21rem);
+                  flex-direction: row;
                 }
                 li {
                   list-style: none;
@@ -1738,7 +1728,7 @@ html {
             justify-self: center;
             grid-column: 1 / span 6 ;
             @media @medium {
-              grid-column: 1 / span 10;
+              grid-column: 3 / span 8;
             }
             @media @large {
               grid-column: 2 / span 10;
