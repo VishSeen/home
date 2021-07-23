@@ -204,13 +204,22 @@ window.addEventListener("scroll", function(event) {
     }
 
     //show elements when certain postion is reached
+    const sectBest = document.querySelectorAll('.sect-best')[0];
     const sectAbout = document.querySelectorAll('.sect-about')[0];
     const sectWorks = document.querySelectorAll('.sect-works')[0];
     const sectSkills = document.querySelectorAll('.sect-skills')[0];
     const sectEdu = document.querySelectorAll('.sect-education')[0];
     const sectContact = document.querySelectorAll('.sect-contact')[0];
 
-    if (isElementVisible(sectAbout)) {
+
+    if (isElementVisible(sectBest)) {
+        const sectBestTitle = document.querySelectorAll('.sect-best .title')[0];
+        // const sectAboutParaBlockCurrent = document.querySelectorAll('.sect-about .para .block-current')[0];
+
+        if (isElementVisible(sectBestTitle)) {
+            animateMultipleEle(9, true, up, '.sect-best .title h1 span');
+        }
+    } else if (isElementVisible(sectAbout)) {
         const sectAboutTitle = document.querySelectorAll('.sect-about .title')[0];
         const sectAboutSlogan = document.querySelectorAll('.sect-about .slogan')[0];
         const sectAboutPara = document.querySelectorAll('.sect-about .para')[0];
