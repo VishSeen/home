@@ -979,6 +979,7 @@ html body main #sect-best .grid .block-gallery .wrapper {
 }
 html body main #sect-best .grid .block-gallery .wrapper .item {
   margin: 0 1.5rem;
+  padding: 1rem 0;
 }
 @media only screen and (min-width: 375px) {
   html body main #sect-best .grid .block-gallery .wrapper .item {
@@ -992,6 +993,7 @@ html body main #sect-best .grid .block-gallery .wrapper .item {
 }
 @media only screen and (min-width: 1366px) {
   html body main #sect-best .grid .block-gallery .wrapper .item {
+    padding: 2rem 0;
     margin: 0 2rem;
   }
 }
