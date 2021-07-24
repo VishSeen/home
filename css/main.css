@@ -61,6 +61,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2b2b28;
 }
+.image-hidden {
+  background-size: 0%;
+}
 .hide {
   opacity: 0;
 }
@@ -410,7 +413,7 @@ html body header {
   justify-self: center;
   display: grid;
   transform: translate3d(0, 0, 0) skewY(0);
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 1s ease, background-position 0.5s ease;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 3s ease-in-out, background-position 0.5s ease;
   background-image: url('../img/header.jpg');
   background-position: left top;
   background-size: 200%;
@@ -1050,6 +1053,11 @@ html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
     font-size: 1.3rem;
   }
 }
+@media only screen and (min-width: 1440px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
+    font-size: 1.5rem;
+  }
+}
 @media only screen and (min-width: 2560px) {
   html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
     font-size: 2rem;
@@ -1070,6 +1078,11 @@ html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
 @media only screen and (min-width: 1366px) {
   html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
     font-size: 0.65rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
+    font-size: 0.8rem;
   }
 }
 @media only screen and (min-width: 2560px) {
@@ -1210,81 +1223,59 @@ html body main .sect-works .grid .work-container {
 @media only screen and (min-width: 768px) {
   html body main .sect-works .grid .work-container {
     grid-column: 1 / span 12;
-    top: 2rem;
   }
 }
 @media only screen and (min-width: 2560px) {
   html body main .sect-works .grid .work-container {
-    grid-column: 2 / span 11;
-  }
-}
-@media only screen and (min-width: 2560px) {
-  html body main .sect-works .grid .work-container {
-    grid-column: 1 / span 11;
-    top: 15rem;
+    grid-column: 1 / span 12;
   }
 }
 html body main .sect-works .grid .work-container .inner .list {
   display: grid;
   grid-template-columns: 1fr;
 }
+@media only screen and (min-width: 768px) {
+  html body main .sect-works .grid .work-container .inner .list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main .sect-works .grid .work-container .inner .list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 html body main .sect-works .grid .work-container .inner .list .item {
   padding: 0;
-  margin: 5rem 0;
+  margin: 2rem 0;
   position: relative;
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   width: 100%;
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 html body main .sect-works .grid .work-container .inner .list .item:nth-child(1) {
   transition-delay: 0ms;
-  transform: translateY(0%);
-}
-@media only screen and (min-width: 1366px) {
-  html body main .sect-works .grid .work-container .inner .list .item:nth-child(1) {
-    transform: translateY(0%);
-  }
 }
 html body main .sect-works .grid .work-container .inner .list .item:nth-child(2) {
   transition-delay: 125ms;
-  transform: translateY(0%);
-}
-@media only screen and (min-width: 1366px) {
-  html body main .sect-works .grid .work-container .inner .list .item:nth-child(2) {
-    transform: translateY(15%);
-  }
 }
 html body main .sect-works .grid .work-container .inner .list .item:nth-child(3) {
   transition-delay: 250ms;
-  transform: translateY(0%);
-}
-@media only screen and (min-width: 1366px) {
-  html body main .sect-works .grid .work-container .inner .list .item:nth-child(3) {
-    transform: translateY(30%);
-  }
 }
 @media only screen and (min-width: 768px) {
   html body main .sect-works .grid .work-container .inner .list .item {
     justify-self: center;
-    margin: 10rem 0;
-  }
-}
-@media only screen and (min-width: 1366px) {
-  html body main .sect-works .grid .work-container .inner .list .item {
-    padding: 0 0 5rem 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 6rem 0;
   }
 }
 @media only screen and (min-width: 1440px) {
   html body main .sect-works .grid .work-container .inner .list .item {
-    margin: 8rem 0;
+    margin: 5rem 0;
   }
 }
 @media only screen and (min-width: 2560px) {
   html body main .sect-works .grid .work-container .inner .list .item {
-    margin: 8rem 0;
+    margin: 6rem 0;
   }
 }
 html body main .sect-works .grid .work-container .inner .list .item .block-image {
@@ -1298,15 +1289,15 @@ html body main .sect-works .grid .work-container .inner .list .item .block-image
 }
 @media only screen and (min-width: 768px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-image {
-    width: 30rem;
-    height: 30rem;
+    width: 20rem;
+    height: 20rem;
     margin: 0;
   }
 }
 @media only screen and (min-width: 1366px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-image {
-    width: 35rem;
-    height: 35rem;
+    width: 30rem;
+    height: 30rem;
     display: flex;
     justify-self: start;
     margin-left: 0;
@@ -1314,14 +1305,14 @@ html body main .sect-works .grid .work-container .inner .list .item .block-image
 }
 @media only screen and (min-width: 1440px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-image {
-    width: 45rem;
-    height: 45rem;
+    width: 26rem;
+    height: 26rem;
   }
 }
 @media only screen and (min-width: 2560px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-image {
-    width: 50rem;
-    height: 50rem;
+    width: 40rem;
+    height: 40rem;
     justify-self: center;
   }
 }
@@ -1338,6 +1329,9 @@ html body main .sect-works .grid .work-container .inner .list .item .block-image
   align-self: center;
   transition: transform 2s linear;
 }
+html body main .sect-works .grid .work-container .inner .list .item .block-text {
+  text-align: center;
+}
 @media only screen and (min-width: 1366px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-text {
     align-self: center;
@@ -1347,72 +1341,62 @@ html body main .sect-works .grid .work-container .inner .list .item .block-text 
   padding: 1rem;
 }
 html body main .sect-works .grid .work-container .inner .list .item .block-text .title h1 {
-  font-size: 2rem;
+  font-weight: 600;
+  font-size: 1.3rem;
   position: relative;
   margin: 0;
 }
 @media only screen and (min-width: 768px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-text .title h1 {
-    font-size: 5rem;
+    font-size: 1.3rem;
   }
 }
 @media only screen and (min-width: 1366px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-text .title h1 {
-    font-size: 5rem;
+    font-size: 1.4rem;
   }
 }
 @media only screen and (min-width: 1440px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-text .title h1 {
-    font-size: 5.5rem;
+    font-size: 1.5rem;
   }
 }
 @media only screen and (min-width: 2560px) {
   html body main .sect-works .grid .work-container .inner .list .item .block-text .title h1 {
-    font-size: 6rem;
+    font-size: 2.5rem;
   }
 }
-html body main .sect-works .grid .work-container .inner .list .item .block-text .title p {
+html body main .sect-works .grid .work-container .inner .list .item .block-text .title h6 {
   margin: 0;
-  font-size: 0.8rem;
-}
-html body main .sect-works .grid .work-container .inner .list .item .block-text .info {
-  padding: 1rem;
-  padding-top: 0;
-  margin-left: 0;
+  opacity: 0.4;
+  letter-spacing: 2px;
+  font-size: 0.6rem;
+  font-weight: 400;
 }
 @media only screen and (min-width: 768px) {
-  html body main .sect-works .grid .work-container .inner .list .item .block-text .info {
-    margin-left: 5rem;
+  html body main .sect-works .grid .work-container .inner .list .item .block-text .title h6 {
+    font-size: 0.8rem;
   }
 }
-html body main .sect-works .grid .work-container .inner .list .item .block-text .info p {
-  font-size: 0.9rem;
-  opacity: 0.4;
+@media only screen and (min-width: 1366px) {
+  html body main .sect-works .grid .work-container .inner .list .item .block-text .title h6 {
+    font-size: 0.65rem;
+  }
 }
-@media only screen and (min-width: 768px) {
-  html body main .sect-works .grid .work-container .inner .list .item .block-text .info p {
+@media only screen and (min-width: 1440px) {
+  html body main .sect-works .grid .work-container .inner .list .item .block-text .title h6 {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body main .sect-works .grid .work-container .inner .list .item .block-text .title h6 {
     font-size: 1rem;
   }
 }
-@media only screen and (min-width: 2560px) {
-  html body main .sect-works .grid .work-container .inner .list .item .block-text .info p {
-    font-size: 1.2rem;
-  }
-}
 html body main .sect-works .grid .work-container .inner .list .item .block-text .block-button {
-  margin-left: 1rem;
-  display: block;
+  display: none;
 }
 @media only screen and (min-width: 768px) {
-  html body main .sect-works .grid .work-container .inner .list .item .block-text .block-button {
-    margin-left: 6rem;
-    display: flex;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  html body main .sect-works .grid .work-container .inner .list .item .block-text .block-button {
-    margin-left: 6rem;
-  }
 }
 html body main .sect-works .grid .work-container .inner .list .item .block-text .block-button .button {
   margin: 1rem 0;

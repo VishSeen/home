@@ -8,6 +8,7 @@ const primaryColor = '#222831';
 const accentYellowColor = '#FFD369';
 const headerColor = "#eeeeee";
 
+const imageHidden = 'image-hidden';
 const revealSlide = 'reveal-slide';
 const revealed = 'revealed';
 const up = 'up';
@@ -70,6 +71,9 @@ function introSlideUp(doSlide) {
         introInner.classList.remove(slideUp);
         numEle++;
     }
+
+    const header = document.querySelectorAll('header')[0];
+    header.classList.remove(imageHidden);
 }
 //==========================================================================///
 // 3. swipe main content up
@@ -175,6 +179,7 @@ function cardHoverOut(element) {
 
 
 
+
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// BROWSER EVENT //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -237,8 +242,6 @@ window.addEventListener("scroll", function(event) {
             animateMultipleEle(1, true, visible, '.sect-works .slogan div.inner');
         }
 
-        sectWorksItemSec.style.transform = "translateY(" + scrollTopVal / 1000 + '%)';
-        sectWorksItemThird.style.transform = "translateY(" + scrollTopVal / 1000 + '%)';
     } else if (isElementVisible(sectSkills)) {
         const sectSkillsTitle = document.querySelectorAll('.sect-skills .title')[0];
         const sectSkillsSlogan = document.querySelectorAll('.sect-skills .slogan')[0];
@@ -293,8 +296,8 @@ window.addEventListener("scroll", function(event) {
     } else {
         console.log('On mobile');
     }
-
 }, false);
+
 
 
 
@@ -302,14 +305,10 @@ window.addEventListener("scroll", function(event) {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////FUNCTIONS///////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// CHANGE COLOR FOR ELEMENTS
 function changeBackColor(section, sectColor) {
     const sect = document.querySelectorAll(section)[0];
     sect.style.background = sectColor;
-}
-
-function changeColor(element, eleColor) {
-    const ele = document.querySelectorAll(element)[0];
-    ele.style.color = eleColor;
 }
 
 function changeNavColor(color) {
@@ -320,12 +319,12 @@ function changeNavColor(color) {
 }
 
 
+
 // SCROLL DELAY CALCULATION : Calculate delay for scroll
 function calcScrollVal(scrollYVal) {
     let newScrollVal = (scrollYVal / 2 * 3);
     return newScrollVal;
 }
-
 // SCROLL DELAY ANIMATION : Delay effect on scrolling
 function smoothScrollMain(scrollYVal) {
     let delay = (scrollYVal / 2 * 3);
@@ -337,6 +336,7 @@ function smoothScrollMain(scrollYVal) {
     header.style.backgroundPositionY = delay / 9 + "px";
     main.style.transform = "translate3d(0,-" + delay + "px, 0)";
 }
+
 
 
 // ANIMATE MULTIPLE ELEMENT: Delay effect on scrolling
@@ -352,6 +352,7 @@ function animateMultipleEle(numEle, add, animationClass, elementNth) {
         loop++;
     }
 }
+
 
 // CHECK IF ELEMENT VISIBLE : Get an element and verify if it is in viewport
 function isElementVisible(el) {
@@ -375,16 +376,6 @@ function isElementVisible(el) {
 }
 
 
-// move profile animation
-function translateProfile(scrollY) {
-    let currentVal = 50;
-    let scrollVal = currentVal - scrollY;
-
-    const profile = document.querySelectorAll('.sect-about .profile')[0];
-    profile.style.transform = 'translateY(' + scrollVal + '%)';
-
-    currentVal = scrollVal;
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////

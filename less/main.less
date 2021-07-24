@@ -168,6 +168,10 @@
 //================================================================//
 //################## ANIMATION CLASSES ###########################//
 //================================================================//
+.image-hidden {
+  background-size: 0%;
+}
+
 .hide {
   opacity: 0;
 }
@@ -513,7 +517,7 @@ html {
       justify-self: center;
       display: grid;
       transform: translate3d(0, 0, 0) skewY(0);
-      transition: @transSection, background 1s ease, background-position 0.5s ease;
+      transition: @transSection, background 3s ease-in-out, background-position 0.5s ease;
       background-image: url('../img/header.jpg');
       background-position: left top;
       background-size: 200%;
@@ -1038,12 +1042,15 @@ html {
                     @media @large {
                       font-size: 1.3rem;
                     }
+                    @media @xlarge {
+                      font-size: 1.5rem;
+                    }
                     @media @xxlarge {
                       font-size: 2rem;
                     }
                   }
                   h6 {
-                    font-weight: 400;
+                    font-weight: @poppinsRegular;
                     letter-spacing: 2px;
                     margin: 0;
                     opacity: @tertiatyFontColor;
@@ -1053,6 +1060,9 @@ html {
                     }
                     @media @large {
                       font-size: 0.65rem;
+                    }
+                    @media @xlarge {
+                      font-size: 0.8rem;
                     }
                     @media @xxlarge {
                       font-size: 1rem;
@@ -1175,63 +1185,49 @@ html {
         height: auto;
         .grid {
           .work-container {
-            // background: red;
             grid-column: 1 / span 8;
             @media @medium {
               grid-column: 1 / span 12;
-              top: 2rem;
             }
             @media @xxlarge {
-              grid-column: 2 / span 11;
-            }
-            @media @xxlarge {
-              grid-column: 1 / span 11;
-              top: 15rem;
+              grid-column: 1 / span 12;
             }
             .inner {
               .list {
                 display: grid;
                 grid-template-columns: 1fr;
+                @media @medium {
+                  grid-template-columns: 1fr 1fr;
+                }
+                @media @xlarge {
+                  grid-template-columns: 1fr 1fr 1fr;
+                }
                 .item {
                   padding: 0;
-                  margin: 5rem 0;
+                  margin: 2rem 0;
                   position: relative;
                   transition: @transSection;
                   width: 100%;
-                  justify-self: center;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
                   &:nth-child(1) {
                     transition-delay: 0ms;
-                    transform: translateY(0%);
-                    @media @large {
-                      transform: translateY(0%);}
                   }
                   &:nth-child(2) {
                     transition-delay: 125ms;
-                    transform: translateY(0%);
-                    @media @large {
-                      transform: translateY(15%);}
                   }
                   &:nth-child(3) {
                     transition-delay: 250ms;
-                    transform: translateY(0%);
-                    @media @large {
-                      transform: translateY(30%);}
                   }
                   @media @medium {
                     justify-self: center;
-                    margin: 10rem 0;
-                  }
-                  @media @large {
-                    padding: 0 0 5rem 0;
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    margin: 6rem 0;
                   }
                   @media @xlarge {
-                    margin: 8rem 0;
+                    margin: 5rem 0;
                   }
                   @media @xxlarge {
-                    margin: 8rem 0;
+                    margin: 6rem 0;
                   }
                   .block-image {
                     width: 16rem;
@@ -1242,24 +1238,24 @@ html {
                     background: @backgSectionColor;
                     overflow: hidden;
                     @media @medium {
-                      width: 30rem;
-                      height: 30rem;
+                      width: 20rem;
+                      height: 20rem;
                       margin: 0;
                     }
                     @media @large {
-                      width: 35rem;
-                      height: 35rem;
+                      width: 30rem;
+                      height: 30rem;
                       display: flex;
                       justify-self: start;
                       margin-left: 0;
                     }
                     @media @xlarge {
-                      width: 45rem;
-                      height: 45rem;
+                      width: 26rem;
+                      height: 26rem;
                     }
                     @media @xxlarge {
-                      width: 50rem;
-                      height: 50rem;
+                      width: 40rem;
+                      height: 40rem;
                       justify-self: center;
                     }
                     &:hover {
@@ -1277,61 +1273,54 @@ html {
                     }
                   }
                   .block-text {
-
+                    text-align: center;
                     @media @large {
                       align-self: center;
                     }
                     .title {
                       padding: 1rem;
                       h1 {
-                        font-size: 2rem;
+                        font-weight: @poppinsSemiBold;
+                        font-size: 1.3rem;
                         position: relative;
                         margin: 0;
                         @media @medium {
-                          font-size: 5rem;
+                          font-size: 1.3rem;
                         }
                         @media @large {
-                          font-size: 5rem;
+                          font-size: 1.4rem;
                         }
                         @media @xlarge {
-                          font-size: 5.5rem;
+                          font-size: 1.5rem;
                         }
                         @media @xxlarge {
-                          font-size: 6rem;
+                          font-size: 2.5rem;
                         }
                       }
-                      p {
+                      h6 {
                         margin: 0;
-                        font-size: 0.8rem;
-                      }
-                    }
-                    .info {
-                      padding: 1rem;
-                      padding-top: 0;
-                      margin-left: 0;
-                      @media @medium {
-                        margin-left: 5rem;
-                      }
-                      p {
-                        font-size: 0.9rem;
                         opacity: @tertiatyFontColor;
+                        letter-spacing: 2px;
+                        font-size: 0.6rem;
+                        font-weight: @poppinsRegular;
                         @media @medium {
-                          font-size: 1rem;
+                          font-size: 0.8rem;
+                        }
+                        @media @large {
+                          font-size: 0.65rem;
+                        }
+                        @media @xlarge {
+                          font-size: 0.8rem;
                         }
                         @media @xxlarge {
-                          font-size: 1.2rem;
+                          font-size: 1rem;
                         }
                       }
                     }
                     .block-button {
-                      margin-left: 1rem;
-                      display: block;
+                      display: none;
                       @media @medium {
-                        margin-left: 6rem;
-                        display: flex;
-                      }
-                      @media @xlarge {
-                        margin-left: 6rem;
+                        // display: flex;
                       }
                       .button {
                         margin: 1rem 0;
@@ -1448,12 +1437,6 @@ html {
                 }
                 &:nth-child(3) {
                   transition-delay: 250ms;
-                }
-                @media @medium {
-                }
-                @media @large {
-                }
-                @media @xlarge {
                 }
                 h4 {
                   font-size: 1.2rem;
