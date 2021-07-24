@@ -205,7 +205,7 @@ window.addEventListener("scroll", function(event) {
         // const sectAboutParaBlockCurrent = document.querySelectorAll('.sect-about .para .block-current')[0];
 
         if (isElementVisible(sectBestTitle)) {
-            animateMultipleEle(8, true, up, '.sect-best .title h1 span');
+            animateMultipleEle(7, true, up, '.sect-best .title h1 span');
         }
     } else if (isElementVisible(sectAbout)) {
         const sectAboutTitle = document.querySelectorAll('.sect-about .title')[0];
@@ -291,7 +291,7 @@ window.addEventListener("scroll", function(event) {
             animateMultipleEle(8, true, revealed, '.sect-contact .socials li');
         }
     } else {
-
+        console.log('On mobile');
     }
 
 }, false);

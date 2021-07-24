@@ -410,13 +410,23 @@ html body header {
   justify-self: center;
   display: grid;
   transform: translate3d(0, 0, 0) skewY(0);
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 1s ease, background-position 2s ease;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 1s ease, background-position 0.5s ease;
   background-image: url('../img/header.jpg');
   background-position: left top;
-  background-size: contain;
+  background-size: 200%;
   background-repeat: no-repeat;
 }
 @media only screen and (min-width: 768px) {
+  html body header {
+    background-size: 125%;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body header {
+    background-size: 90%;
+  }
+}
+@media only screen and (min-width: 2560px) {
   html body header {
     background-size: 70%;
   }
@@ -887,9 +897,15 @@ html body main .sect.colored {
   background-color: #f8f8f8;
 }
 html body main #sect-best .grid {
-  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 1rem;
 }
 @media only screen and (min-width: 768px) {
+  html body main #sect-best .grid {
+    padding: 4rem 1rem;
+  }
 }
 @media only screen and (min-width: 1366px) {
   html body main #sect-best .grid {
@@ -920,46 +936,145 @@ html body main #sect-best .grid .title {
 }
 html body main #sect-best .grid .title h1 {
   color: #000000;
+  align-items: center;
 }
-html body main #sect-best .grid .block-gallery {
-  grid-column: 1 / span 12;
-}
-html body main #sect-best .grid .block-gallery .wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-html body main #sect-best .grid .block-gallery .wrapper .item {
-  margin: 0 2rem;
-}
-html body main #sect-best .grid .block-gallery .wrapper .item img {
-  width: 15rem;
-  filter: drop-shadow(0px 7px 12px rgba(0, 0, 0, 0.25));
-  transition: all 0.5s ease;
-}
-html body main #sect-best .grid .block-gallery .wrapper .item img:hover {
-  cursor: pointer;
-  transform: translateY(-2%);
-  filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
+html body main #sect-best .grid .title h1:after,
+html body main #sect-best .grid .title h1:before {
+  content: "";
+  height: 1px;
+  width: 5rem;
+  background: #000000;
+  margin: 0 1rem;
+  transition: all 1s ease;
 }
 @media only screen and (min-width: 768px) {
-  html body main #sect-best .grid .block-gallery .wrapper .item img {
+  html body main #sect-best .grid .title h1:after,
+  html body main #sect-best .grid .title h1:before {
     width: 10rem;
   }
 }
 @media only screen and (min-width: 1366px) {
-  html body main #sect-best .grid .block-gallery .wrapper .item img {
-    width: 24rem;
+  html body main #sect-best .grid .title h1:after,
+  html body main #sect-best .grid .title h1:before {
+    width: 13rem;
+  }
+}
+html body main #sect-best .grid .block-gallery {
+  width: 100%;
+}
+html body main #sect-best .grid .block-gallery .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: scroll;
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-best .grid .block-gallery .wrapper {
+    justify-content: space-around;
+    overflow: hidden;
+  }
+}
+html body main #sect-best .grid .block-gallery .wrapper .item {
+  margin: 0 1.5rem;
+}
+@media only screen and (min-width: 375px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item {
+    margin: 0 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item {
+    margin: 0 8rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item {
+    margin: 0 2rem;
+  }
+}
+html body main #sect-best .grid .block-gallery .wrapper .item a img {
+  width: 15rem;
+  filter: drop-shadow(0px 7px 12px rgba(0, 0, 0, 0.25));
+  transition: all 0.5s ease;
+}
+html body main #sect-best .grid .block-gallery .wrapper .item a img:hover {
+  cursor: pointer;
+  transform: translateY(-2%);
+  filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.25));
+}
+@media only screen and (min-width: 375px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item a img {
+    width: 17.5rem;
+  }
+}
+@media only screen and (min-width: 425px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item a img {
+    width: 21rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item a img {
+    width: 30rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item a img {
+    width: 22rem;
   }
 }
 @media only screen and (min-width: 1440px) {
-  html body main #sect-best .grid .block-gallery .wrapper .item img {
-    width: 25rem;
+  html body main #sect-best .grid .block-gallery .wrapper .item a img {
+    width: 24rem;
   }
 }
 @media only screen and (min-width: 2560px) {
-  html body main #sect-best .grid .block-gallery .wrapper .item img {
+  html body main #sect-best .grid .block-gallery .wrapper .item a img {
     width: 40rem;
+  }
+}
+html body main #sect-best .grid .block-gallery .wrapper .item .block-text {
+  text-align: center;
+}
+html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h5 {
+    font-size: 2rem;
+  }
+}
+html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0;
+  opacity: 0.4;
+  font-size: 0.6rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
+    font-size: 0.65rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body main #sect-best .grid .block-gallery .wrapper .item .block-text h6 {
+    font-size: 1rem;
   }
 }
 html body main .sect-about {
