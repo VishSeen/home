@@ -517,7 +517,7 @@ html {
       justify-self: center;
       display: grid;
       transform: translate3d(0, 0, 0) skewY(0);
-      transition: @transSection, background 3s ease-in-out, background-position 0.5s ease;
+      transition: @transSection, background 2.5s ease-in-out, background-position 0.5s ease;
       background-image: url('../img/header.jpg');
       background-position: left top;
       background-size: 200%;
@@ -731,7 +731,7 @@ html {
               h1 {
                 display: flex;
                 margin: 0;
-                font-size: 0.7rem;
+                font-size: 0.95rem;
                 letter-spacing: 0.2rem;
                 @media @medium {
                   font-size: 1.1rem;
@@ -1280,7 +1280,10 @@ html {
                       align-self: center;
                     }
                     .title {
-                      padding: 1rem;
+                      padding: 0;
+                      @media @medium {
+                        padding: 1rem;
+                      }
                       h1 {
                         font-weight: @poppinsSemiBold;
                         font-size: 1.3rem;

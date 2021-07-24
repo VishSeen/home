@@ -413,7 +413,7 @@ html body header {
   justify-self: center;
   display: grid;
   transform: translate3d(0, 0, 0) skewY(0);
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 3s ease-in-out, background-position 0.5s ease;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 2.5s ease-in-out, background-position 0.5s ease;
   background-image: url('../img/header.jpg');
   background-position: left top;
   background-size: 200%;
@@ -656,7 +656,7 @@ html body main .sect .grid .title .inner {
 html body main .sect .grid .title .inner h1 {
   display: flex;
   margin: 0;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   letter-spacing: 0.2rem;
 }
 @media only screen and (min-width: 768px) {
@@ -1340,7 +1340,12 @@ html body main .sect-works .grid .work-container .inner .list .item .block-text 
   }
 }
 html body main .sect-works .grid .work-container .inner .list .item .block-text .title {
-  padding: 1rem;
+  padding: 0;
+}
+@media only screen and (min-width: 768px) {
+  html body main .sect-works .grid .work-container .inner .list .item .block-text .title {
+    padding: 1rem;
+  }
 }
 html body main .sect-works .grid .work-container .inner .list .item .block-text .title h1 {
   font-weight: 600;
