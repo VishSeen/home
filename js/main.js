@@ -15,8 +15,6 @@ const visible = 'visible';
 const notRotate = 'not-rotate';
 
 
-console.log('Dictionary app: https://drive.google.com/file/d/1WTXVpUAs0vQJKnfIfr7fOBhN62oe_Njc/view?usp=sharing');
-
 
 //============================================================================//
 //============================ PAGE SPLASH ===================================//
@@ -191,16 +189,6 @@ window.addEventListener("scroll", function(event) {
         console.log("Mobile : true");
     } else {
         smoothScrollMain(scrollTopVal);
-
-        // if((calcScrollVal(scrollTopVal) >= 150) && (calcScrollVal(scrollTopVal) <= 600)) {
-        //   animateMultipleEle(2, true, 'visible', '.sect-works-sub .sub .inner h3');
-        // } else if ((calcScrollVal(scrollTopVal) >= 600) & (calcScrollVal(scrollTopVal) <= 1500)) {
-        //   animateMultipleEle(5, true, 'up', '.sect-works .title .inner h1 span');
-        // } else if ((calcScrollVal(scrollTopVal) >= 1520) && (calcScrollVal(scrollTopVal) <= 1630)) {
-        //   animateMultipleEle(6, true, 'up', '.sect-skills .title .inner h1 span');
-        // } else if ((calcScrollVal(scrollTopVal) >= 1640) && (calcScrollVal(scrollTopVal) <= 1750)) {
-        //   animateMultipleEle(2, true, 'visible', '.sect-skills .sub .inner h3');
-        // }
     }
 
     //show elements when certain postion is reached
@@ -217,7 +205,7 @@ window.addEventListener("scroll", function(event) {
         // const sectAboutParaBlockCurrent = document.querySelectorAll('.sect-about .para .block-current')[0];
 
         if (isElementVisible(sectBestTitle)) {
-            animateMultipleEle(9, true, up, '.sect-best .title h1 span');
+            animateMultipleEle(8, true, up, '.sect-best .title h1 span');
         }
     } else if (isElementVisible(sectAbout)) {
         const sectAboutTitle = document.querySelectorAll('.sect-about .title')[0];
@@ -303,7 +291,7 @@ window.addEventListener("scroll", function(event) {
             animateMultipleEle(8, true, revealed, '.sect-contact .socials li');
         }
     } else {
-        console.log('All Animated');
+
     }
 
 }, false);
@@ -346,6 +334,7 @@ function smoothScrollMain(scrollYVal) {
     const header = document.querySelectorAll('header')[0];
     const main = document.querySelectorAll('main')[0];
     header.style.transform = "translate3d(0,-" + delay + "px, 0)";
+    header.style.backgroundPositionY = delay / 9 + "px";
     main.style.transform = "translate3d(0,-" + delay + "px, 0)";
 }
 
