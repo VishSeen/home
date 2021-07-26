@@ -1000,7 +1000,7 @@ html body main #sect-best .grid .block-gallery .wrapper .item {
 }
 html body main #sect-best .grid .block-gallery .wrapper .item a img {
   width: 15rem;
-  filter: drop-shadow(0px 7px 12px rgba(0, 0, 0, 0.25));
+  box-shadow: 0 27px 53px 0 rgba(208, 208, 208, 0.24);
   transition: all 0.5s ease;
 }
 html body main #sect-best .grid .block-gallery .wrapper .item a img:hover {
