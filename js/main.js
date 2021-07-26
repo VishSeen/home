@@ -14,6 +14,7 @@ const revealed = 'revealed';
 const up = 'up';
 const visible = 'visible';
 const notRotate = 'not-rotate';
+const fadeIn = 'fade-in';
 
 
 
@@ -81,8 +82,13 @@ const mainPg = document.querySelectorAll('main')[0];
 const activePg = 'active-page';
 setTimeout(function() {
     mainPg.classList.add(activePg);
+
 }, 3200);
 
+setTimeout(function() {
+    const scrollSpan = document.querySelectorAll('.block-scroll .container')[0];
+    scrollSpan.style.animation = "scrolling 4s infinite";
+}, 4000);
 
 
 
@@ -135,31 +141,6 @@ function closeMenu() {
 }
 
 
-// BOTTOM BAR SCROLL : Animating slide txt on hover
-function moveScroll() {
-    const ele1 = document.querySelectorAll('.bottom-bar .block-scroll .container:nth-child(1)')[0];
-    const ele2 = document.querySelectorAll('.bottom-bar .block-scroll .container:nth-child(2)')[0];
-
-    setTimeout(function() {
-        ele2.style.transform = 'translate(100%)';
-        ele2.style.opacity = 0;
-
-        ele1.style.transform = 'translate(0%)';
-        ele1.style.opacity = 1;
-    }, 500);
-
-    setTimeout(function() {
-        ele2.style.opacity = 0;
-        ele2.style.transform = 'translate(0%)';
-    }, 700);
-
-    setTimeout(function() {
-        ele2.style.opacity = 1;
-
-        ele1.style.opacity = 0;
-        ele1.style.transform = 'translate(-100%)';
-    }, 800);
-}
 
 
 
@@ -207,10 +188,12 @@ window.addEventListener("scroll", function(event) {
 
     if (isElementVisible(sectBest)) {
         const sectBestTitle = document.querySelectorAll('.sect-best .title')[0];
-        // const sectAboutParaBlockCurrent = document.querySelectorAll('.sect-about .para .block-current')[0];
-
+        const sectBestGallery = document.querySelectorAll('.sect-best .block-gallery .wrapper ')[0];
         if (isElementVisible(sectBestTitle)) {
             animateMultipleEle(7, true, up, '.sect-best .title h1 span');
+        }
+        if (isElementVisible(sectBestGallery)) {
+            animateMultipleEle(3, true, fadeIn, '.sect-best .block-gallery .item');
         }
     } else if (isElementVisible(sectAbout)) {
         const sectAboutTitle = document.querySelectorAll('.sect-about .title')[0];
