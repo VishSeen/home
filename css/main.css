@@ -1021,10 +1021,10 @@ html body main #sect-best .grid .block-gallery .wrapper .item {
   }
 }
 html body main #sect-best .grid .block-gallery .wrapper .item:nth-child(1) {
-  transition-delay: 250ms;
+  transition-delay: 375ms;
 }
 html body main #sect-best .grid .block-gallery .wrapper .item:nth-child(3) {
-  transition-delay: 250ms;
+  transition-delay: 375ms;
 }
 html body main #sect-best .grid .block-gallery .wrapper .item a img {
   width: 15rem;
