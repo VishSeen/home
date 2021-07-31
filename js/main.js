@@ -16,79 +16,82 @@ const visible = 'visible';
 const notRotate = 'not-rotate';
 const fadeIn = 'fade-in';
 
-
+// check if tablet then use transform scroll
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 //============================================================================//
 //============================ PAGE SPLASH ===================================//
 //============================================================================//
-// 1. fades in VISHROY logo
-const blockName = document.querySelectorAll('header .block-name')[0];
-const topBar = document.querySelectorAll('.top-bar')[0];
+function startAnimation() {
+    // 1. fades in VISHROY logo
+    const blockName = document.querySelectorAll('header .block-name')[0];
+    const topBar = document.querySelectorAll('.top-bar')[0];
 
-setTimeout(function() {
-    blockName.classList.add(revealed);
-}, 500);
+    setTimeout(function() {
+        blockName.classList.add(revealed);
+    }, 500);
 
-//==========================================================================///
-// 2. slide down topBar + set as fixed and scale VISHROY down
-const blockScroll = document.querySelectorAll('.block-scroll')[0];
-const blockAva = document.querySelectorAll('header .block-avatar')[0];
-const blockBtn = document.querySelectorAll('header .block-button')[0];
+    //==========================================================================///
+    // 2. slide down topBar + set as fixed and scale VISHROY down
+    const blockScroll = document.querySelectorAll('.block-scroll')[0];
+    const blockAva = document.querySelectorAll('header .block-avatar')[0];
+    const blockBtn = document.querySelectorAll('header .block-button')[0];
 
-setTimeout(function() {
-    blockName.style.transition = "all 0.9s ease-in-out"
-    blockName.style.transform = 'scale(1)';
-    topBar.classList.add(revealSlide);
-    topBar.style.position = "fixed";
-    blockName.style.top = "0";
-    blockName.style.marginBottom = 1.5 + 'rem';
+    setTimeout(function() {
+        blockName.style.transition = "all 0.9s ease-in-out"
+        blockName.style.transform = 'scale(1)';
+        topBar.classList.add(revealSlide);
+        topBar.style.position = "fixed";
+        blockName.style.top = "0";
+        blockName.style.marginBottom = 1.5 + 'rem';
 
-    blockScroll.classList.add(revealed);
-    blockScroll.style.transform = 'rotate(90deg)';
-}, 2400);
+        blockScroll.classList.add(revealed);
+        blockScroll.style.transform = 'rotate(90deg)';
+    }, 2400);
 
-//==========================================================================///
-// 3. display intro content and avatar
-setTimeout(function() {
-    introSlideUp(true);
+    //==========================================================================///
+    // 3. display intro content and avatar
+    setTimeout(function() {
+        introSlideUp(true);
 
-    blockAva.classList.add(revealed);
-    blockBtn.classList.add(revealed);
-}, 3000);
+        blockAva.classList.add(revealed);
+        blockBtn.classList.add(revealed);
+    }, 3000);
 
 
-function introSlideUp(doSlide) {
-    const slideUp = 'slide-up';
-    numEle = 1;
+    function introSlideUp(doSlide) {
+        const slideUp = 'slide-up';
+        numEle = 1;
 
-    if (doSlide) {
-        while (numEle != 4) {
+        if (doSlide) {
+            while (numEle != 4) {
+                const introInner = document.querySelectorAll('header div.intro-line:nth-child(' + numEle + ') .intro-inner')[0];
+                introInner.classList.add(slideUp);
+                numEle++;
+            }
+        } else {
             const introInner = document.querySelectorAll('header div.intro-line:nth-child(' + numEle + ') .intro-inner')[0];
-            introInner.classList.add(slideUp);
+            introInner.classList.remove(slideUp);
             numEle++;
         }
-    } else {
-        const introInner = document.querySelectorAll('header div.intro-line:nth-child(' + numEle + ') .intro-inner')[0];
-        introInner.classList.remove(slideUp);
-        numEle++;
+
+        const header = document.querySelectorAll('header')[0];
+        header.classList.remove(imageHidden);
     }
+    //==========================================================================///
+    // 3. swipe main content up
+    const mainPg = document.querySelectorAll('main')[0];
+    const activePg = 'active-page';
+    setTimeout(function() {
+        mainPg.classList.add(activePg);
 
-    const header = document.querySelectorAll('header')[0];
-    header.classList.remove(imageHidden);
+    }, 3200);
+
+    setTimeout(function() {
+        const scrollSpan = document.querySelectorAll('.block-scroll .container')[0];
+        scrollSpan.style.animation = "scrolling 4s infinite";
+    }, 4000);
 }
-//==========================================================================///
-// 3. swipe main content up
-const mainPg = document.querySelectorAll('main')[0];
-const activePg = 'active-page';
-setTimeout(function() {
-    mainPg.classList.add(activePg);
-
-}, 3200);
-
-setTimeout(function() {
-    const scrollSpan = document.querySelectorAll('.block-scroll .container')[0];
-    scrollSpan.style.animation = "scrolling 4s infinite";
-}, 4000);
 
 
 
@@ -164,13 +167,18 @@ function cardHoverOut(element) {
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// BROWSER EVENT //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// loads all animation as soon as all loads
+window.addEventListener('load', function(event) {
+    startAnimation();
+});
+
+
+
 // toggles scroll event to manipulate Elements
 window.addEventListener("scroll", function(event) {
     // store scrollY value
     let scrollTopVal = this.scrollY;
 
-    // check if tablet then use transform scroll
-    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
         console.log("Mobile : true");
     } else {
@@ -189,7 +197,10 @@ window.addEventListener("scroll", function(event) {
     if (isElementVisible(sectBest)) {
         const sectBestTitle = document.querySelectorAll('.sect-best .title')[0];
         const sectBestGallery = document.querySelectorAll('.sect-best .block-gallery .wrapper ')[0];
+
         if (isElementVisible(sectBestTitle)) {
+            sectBestTitle.classList.add(revealed);
+
             animateMultipleEle(7, true, up, '.sect-best .title h1 span');
         }
         if (isElementVisible(sectBestGallery)) {
