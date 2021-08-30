@@ -179,10 +179,10 @@ window.addEventListener("scroll", function(event) {
     // store scrollY value
     let scrollTopVal = this.scrollY;
 
-    if (isMobile) {
-        console.log("Mobile : true");
-    } else {
+    if (!(isMobile)) {
         smoothScrollMain(scrollTopVal);
+    } else {
+        console.log("Mobile : true");
     }
 
     //show elements when certain postion is reached
